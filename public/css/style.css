@@ -1,0 +1,129 @@
+/* ===========================
+   GoldTracker Style
+=========================== */
+
+body {
+    background-color: #f8f9fa;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+/* Navbar */
+
+.navbar {
+    background: linear-gradient(90deg, #d4af37, #f1c40f);
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #212529 !important;
+}
+
+/* Cards */
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+
+.btn-gold {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    transition: .3s;
+}
+
+.btn-gold:hover {
+    background-color: #b8860b;
+    color: white;
+}
+
+/* Table */
+
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: #d4af37;
+    color: white;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table tbody tr:hover {
+    background: #fff8dc;
+}
+
+/* Alerts */
+
+.alert {
+    border-radius: 10px;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 50px;
+    background: #212529;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Pagination */
+
+.pagination {
+    justify-content: center;
+}
+
+.page-link {
+    color: #d4af37;
+    border-radius: 8px;
+    margin: 0 3px;
+}
+
+.page-item.active .page-link {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: white;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+}
