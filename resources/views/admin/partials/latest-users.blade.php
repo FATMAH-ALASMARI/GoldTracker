@@ -1,52 +1,107 @@
-<div class="card mt-5 shadow">
+<div class="dashboard-card mt-4">
 
-    <div class="card-header bg-dark text-white">
-        <h5 class="mb-0">
-            👥 آخر المستخدمين
-        </h5>
+    <div class="dashboard-card-header">
+
+        <div>
+            <h4>
+                <i class="bi bi-people-fill text-warning"></i>
+                آخر المستخدمين
+            </h4>
+
+            <small>
+                آخر 5 حسابات تم إنشاؤها
+            </small>
+        </div>
+
     </div>
 
-    <div class="card-body">
+    <div class="table-responsive">
 
-        <table class="table table-bordered table-hover align-middle">
+        <table class="table premium-table align-middle mb-0">
 
-            <thead class="table-light">
+            <thead>
+
                 <tr>
+
                     <th>#</th>
-                    <th>الاسم</th>
+
+                    <th>المستخدم</th>
+
                     <th>البريد الإلكتروني</th>
+
                     <th>الصلاحية</th>
+
                     <th>تاريخ التسجيل</th>
+
                 </tr>
+
             </thead>
 
             <tbody>
 
-            @foreach($latestUsers as $user)
+            @forelse($latestUsers as $user)
 
                 <tr>
 
                     <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
+
+                    <td>
+
+                        <div class="d-flex align-items-center gap-3">
+
+                            <div class="table-avatar">
+
+                                {{ strtoupper(substr($user->name,0,1)) }}
+
+                            </div>
+
+                            <strong>{{ $user->name }}</strong>
+
+                        </div>
+
+                    </td>
+
                     <td>{{ $user->email }}</td>
 
                     <td>
+
                         @if($user->role == 'admin')
+
                             <span class="badge bg-danger">
                                 Admin
                             </span>
+
                         @else
+
                             <span class="badge bg-success">
                                 User
                             </span>
+
                         @endif
+
                     </td>
 
-                    <td>{{ $user->created_at->format('Y-m-d') }}</td>
+                    <td>
+
+                        {{ $user->created_at->format('Y-m-d') }}
+
+                    </td>
 
                 </tr>
 
-            @endforeach
+            @empty
+
+                <tr>
+
+                    <td colspan="5" class="text-center py-4">
+
+                        لا يوجد مستخدمون.
+
+                    </td>
+
+                </tr>
+
+            @endforelse
 
             </tbody>
 

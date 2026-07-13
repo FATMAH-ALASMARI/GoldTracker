@@ -4,14 +4,26 @@
 
 <div class="dashboard-page">
 
+    {{-- بطاقات السوق --}}
     @include('admin.partials.dashboard-stats')
 
-    <div class="row g-4 mt-2">
+    {{-- بطاقات النظام --}}
+    <div class="mt-4">
+        @include('admin.partials.dashboard-cards')
+    </div>
 
-        <div class="col-lg-8">
+    {{-- الرسم البياني --}}
+    <div class="row mt-4">
+
+        <div class="col-12">
             @include('admin.partials.dashboard-chart')
         </div>
 
+    </div>
+
+    {{-- آخر المستخدمين --}}
+    <div class="mt-4">
+        @include('admin.partials.latest-users')
     </div>
 
 </div>
