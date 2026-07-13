@@ -36,7 +36,9 @@ class AuthenticatedSessionController extends Controller
             'price'   => 0,
         ]);
 
-        return redirect()->intended(route('gold.index'));
+        return redirect()->intended(
+            route('dashboard', absolute: false)
+        );
     }
 
     /**

@@ -22,6 +22,17 @@ Route::get('/gold/export', [GoldController::class, 'export'])
 
 /*
 |--------------------------------------------------------------------------
+| Dashboard Compatibility Route
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/dashboard', function () {
+    return redirect()->route('gold.index');
+})->middleware('auth')->name('dashboard');
+
+
+/*
+|--------------------------------------------------------------------------
 | Authenticated Routes
 |--------------------------------------------------------------------------
 */
