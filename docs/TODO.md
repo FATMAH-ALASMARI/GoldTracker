@@ -2,7 +2,7 @@
 
 ## Sprint 1 - Dashboard
 
-- [ ] Refactor dashboard.css
+- [x] Refactor dashboard.css
 - [ ] Improve Dashboard Hero
 - [ ] Improve Statistics Cards
 - [ ] Improve Gold Chart
