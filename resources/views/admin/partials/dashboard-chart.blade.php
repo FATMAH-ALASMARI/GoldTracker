@@ -1,32 +1,37 @@
-<div class="card shadow-sm border-0 dashboard-chart-card">
+<div class="card gold-chart-card">
 
-    <div class="card-header bg-white border-0 py-3">
+    <div class="gold-chart-header">
 
-        <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <div>
+            <h5 class="gold-chart-title">
+                <i class="bi bi-graph-up-arrow"></i>
+                تطور أسعار الذهب
+            </h5>
 
-            <div class="d-flex align-items-center">
+            <p class="gold-chart-subtitle">
+                آخر 10 تحديثات للأسعار
+            </p>
+        </div>
 
-                <div>
-                    <h5 class="mb-0 fw-bold">
-                        تطور أسعار الذهب
-                    </h5>
+        <div class="gold-chart-status">
+            <div class="gold-live-badge">
 
-                    <small class="text-muted">
-                        آخر 10 تحديثات للأسعار
-                    </small>
-                </div>
+                <span class="gold-live-badge-title">
+                    <span class="gold-live-dot"></span>
+                    السوق مباشر
+                </span>
+
+                <span class="gold-live-badge-time">
+                    <i class="bi bi-clock"></i>
+                    آخر 10 أسعار
+                </span>
 
             </div>
-
-            <span class="badge bg-warning text-dark px-3 py-2">
-                آخر 10 أسعار
-            </span>
-
         </div>
 
     </div>
 
-    <div class="card-body">
+    <div class="card-body gold-chart-body">
 
         <div class="gold-chart-wrapper">
             <canvas id="goldChart"></canvas>
@@ -115,15 +120,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     display: true,
 
                     labels: {
-
                         color: '#AEB8C8',
-
                         usePointStyle: true,
-
                         pointStyle: 'circle',
-
                         padding: 18
-
                     }
 
                 },
