@@ -1,0 +1,126 @@
+/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar{
+    width:260px;
+    min-height:100vh;
+
+    background:#111827;
+
+    border-left:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    flex-direction:column;
+
+    padding:25px 18px;
+}
+
+.sidebar .nav{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar .nav-link{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 18px;
+
+    color:#d1d5db;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    transition:.25s;
+}
+
+.sidebar .nav-link:hover{
+
+    background:#1f2937;
+
+    color:#d4af37;
+}
+
+.sidebar .nav-link.active{
+
+    background:#d4af37;
+
+    color:#111;
+
+    font-weight:700;
+}
+
+.sidebar hr{
+
+    border-color:rgba(255,255,255,.08);
+
+    margin:20px 0;
+}
+
+/* ===========================
+   User
+=========================== */
+
+.sidebar .user-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:25px;
+}
+
+.sidebar .user-avatar{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:#d4af37;
+
+    color:#111;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+    .admin-layout{
+
+        flex-direction:column;
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        min-height:auto;
+    }
+
+    .content-area{
+
+        padding:20px;
+    }
+
+}

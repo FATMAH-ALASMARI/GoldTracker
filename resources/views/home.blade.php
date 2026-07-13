@@ -1,423 +1,351 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>GoldTracker</title>
+@extends('layouts.app')
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+@section('content')
 
-    <style>
-        body{
-            background:#f5f5f5;
-        }
+<div class="container-fluid px-4 py-4">
 
-        .card{
-            border:none;
-            border-radius:15px;
-            box-shadow:0 5px 15px rgba(0,0,0,.1);
-        }
+    {{-- Hero --}}
+    @include('gold.hero')
 
-        h2{
-            color:#d4af37;
-            font-weight:bold;
-        }
-
-        .table th{
-            background:#d4af37;
-            color:white;
-        }
-
-        .btn-gold{
-            background:#d4af37;
-            color:white;
-        }
-
-        .btn-gold:hover{
-            background:#b89228;
-            color:white;
-        }
-
-        /* Dashboard Cards */
-
-        .dashboard-card{
-            border-radius:15px;
-            transition:.3s;
-            box-shadow:0 8px 20px rgba(0,0,0,.15);
-        }
-
-        .dashboard-card:hover{
-            transform:translateY(-6px);
-        }
-
-        .dashboard-card h5{
-            font-size:18px;
-        }
-
-        .dashboard-card h2{
-            font-size:34px;
-            font-weight:bold;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container mt-5">
-
-    <div class="card p-4">
-
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>💰 أسعار الذهب</h2>
-            <div>
-                <a href="{{ route('gold.export') }}" class="btn btn-success">
-                    <i class="bi bi-file-earmark-excel"></i>
-                    تصدير Excel
-                </a>
-                <a href="{{ route('gold.create') }}" class="btn btn-gold">
-                    <i class="bi bi-plus-circle"></i>
-                    إضافة سعر جديد
-                </a>
-            </div>
+    {{-- Success Message --}}
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
+    @endif
 
-        @if(session('success'))
+    {{-- Statistics --}}
+    @include('gold.stats')
 
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
+    {{-- Search --}}
+    @include('gold.search')
 
-        @endif
+    {{-- Chart --}}
+    @include('gold.chart')
 
-        <div class="row mb-4">
-
-            <div class="col-md-3">
-
-                <div class="card dashboard-card bg-primary text-white">
-
-                    <div class="card-body">
-
-                        <h5>عدد الأسعار</h5>
-
-                        <h2>{{ $totalPrices }}</h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="card dashboard-card bg-success text-white">
-
-                    <div class="card-body">
-
-                        <h5>أعلى سعر</h5>
-
-                        <h2>{{ $highestPrice }} ريال</h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="card dashboard-card bg-danger text-white">
-
-                    <div class="card-body">
-
-                        <h5>أقل سعر</h5>
-
-                        <h2>{{ $lowestPrice }} ريال</h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="card dashboard-card bg-warning text-dark">
-
-                    <div class="card-body">
-
-                        <h5>المتوسط</h5>
-
-                        <h2>{{ $averagePrice }} ريال</h2>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-body">
-                <form method="GET" action="{{ route('gold.index') }}">
-
-                    <div class="row g-3">
-
-                        <div class="col-md-4">
-                            <input
-                                type="text"
-                                name="search"
-                                class="form-control"
-                                placeholder="ابحث عن العيار"
-                                value="{{ request('search') }}">
-                        </div>
-
-                        <div class="col-md-3">
-                            <input
-                                type="date"
-                                name="from_date"
-                                class="form-control"
-                                value="{{ request('from_date') }}">
-                        </div>
-
-                        <div class="col-md-3">
-                            <input
-                                type="date"
-                                name="to_date"
-                                class="form-control"
-                                value="{{ request('to_date') }}">
-                        </div>
-
-                        <div class="col-md-2 d-grid">
-                            <button class="btn btn-gold">
-                                🔍 بحث
-                            </button>
-                        </div>
-
-                        <div class="col-md-2 d-grid">
-                            <a href="{{ route('gold.index') }}" class="btn btn-secondary">
-                                إعادة تعيين
-                            </a>
-                        </div>
-
-                    </div>
-
-                </form>
-            </div>
-        </div>
-
-        <div class="card p-4 mt-4">
-            <h4 class="mb-3">📊 مخطط الأسعار</h4>
-            <canvas id="pricesChart"></canvas>
-        </div>
-
-        <table class="table table-bordered table-hover text-center align-middle">
-
-            <thead>
-
-            <tr>
-
-                <th>#</th>
-                <th>
-                    <a href="{{ route('gold.index', array_merge(request()->query(), [
-                        'sort' => 'karat',
-                        'direction' => request('direction') == 'asc' ? 'desc' : 'asc'
-                    ])) }}"
-                    class="text-white text-decoration-none">
-                        اسم العيار
-                        @if(request('sort') == 'karat')
-                            {{ request('direction') == 'asc' ? '▲' : '▼' }}
-                        @endif
-                    </a>
-                </th>
-                <th>
-                    <a href="{{ route('gold.index', array_merge(request()->query(), [
-                        'sort' => 'price',
-                        'direction' => request('direction') == 'asc' ? 'desc' : 'asc'
-                    ])) }}"
-                    class="text-white text-decoration-none">
-
-                        السعر
-
-                        @if(request('sort') == 'price')
-                            {{ request('direction') == 'asc' ? '▲' : '▼' }}
-                        @endif
-
-                    </a>
-                </th>
-                <th>
-                    <a href="{{ route('gold.index', array_merge(request()->query(), [
-                        'sort' => 'created_at',
-                        'direction' => request('direction') == 'asc' ? 'desc' : 'asc'
-                    ])) }}"
-                    class="text-white text-decoration-none">
-                        التاريخ
-                        @if(request('sort') == 'created_at')
-                            {{ request('direction') == 'asc' ? '▲' : '▼' }}
-                        @endif
-                    </a>
-                </th>
-                <th>العمليات</th>
-
-            </tr>
-
-            </thead>
-
-            <tbody>
-
-            @foreach($prices as $price)
-
-                <tr>
-
-                    <td>{{ $price->id }}</td>
-
-                    <td>{{ $price->karat }}</td>
-
-                    <td>{{ $price->price }} ريال</td>
-
-                    <td>{{ $price->created_at->format('Y-m-d') }}</td>
-
-                    <td>
-
-                        <a href="{{ route('gold.edit',$price->id) }}"
-                           class="btn btn-warning btn-sm">
-                            تعديل
-                        </a>
-
-                        <form action="{{ route('gold.destroy',$price->id) }}"
-                              method="POST"
-                              style="display:inline">
-
-                            @csrf
-                            @method('DELETE')
-
-                            <button class="btn btn-danger btn-sm"
-                                    onclick="return confirm('هل تريد الحذف؟')">
-
-                                حذف
-
-                            </button>
-
-                        </form>
-
-                    </td>
-
-                </tr>
-
-            @endforeach
-
-            </tbody>
-
-        </table>
-
-        <div class="mt-4 d-flex justify-content-center">
-            {{ $prices->links() }}
-        </div>
-
-        <div class="card mb-4">
-
-            <div class="card-header bg-dark text-white">
-                📈 أسعار الذهب
-            </div>
-
-            <div class="card-body">
-
-                <canvas id="goldChart" height="90"></canvas>
-
-            </div>
-
-        </div>
-
-    </div>
+    {{-- Table --}}
+    @include('gold.table')
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+@endsection
+
+
+@push('scripts')
+
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+
     const ctx = document.getElementById('pricesChart');
 
-    if (ctx) {
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: @json($labels),
-                datasets: [{
-                    label: 'الأسعار',
-                    data: @json($chartPrices),
-                    backgroundColor: ['#d4af37', '#c9a227', '#f4d03f', '#b89228'],
-                    borderColor: '#d4af37',
-                    borderWidth: 1
-                }]
+    if (!ctx) {
+        return;
+    }
+
+    const chartLabels = @json($chartLabels);
+    const chartData = @json($chartData);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Limited Historical Data Message
+    |--------------------------------------------------------------------------
+    */
+
+    if (chartLabels.length < 2) {
+
+        const chartContainer = ctx.parentElement;
+
+        const oldMessage = chartContainer.querySelector(
+            '.chart-data-message'
+        );
+
+        if (!oldMessage) {
+
+            const message = document.createElement('div');
+
+            message.className = 'chart-data-message';
+
+            message.innerHTML = `
+                <i class="fa-solid fa-circle-info"></i>
+                البيانات التاريخية محدودة خلال الفترة المحددة
+            `;
+
+            chartContainer.appendChild(message);
+        }
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Gold Prices Chart
+    |--------------------------------------------------------------------------
+    */
+
+    new Chart(ctx, {
+
+        type: 'line',
+
+        data: {
+
+            labels: chartLabels,
+
+            datasets: [
+
+                {
+                    label: 'عيار 24',
+
+                    data: chartData['24'],
+
+                    borderColor: '#f2c94c',
+
+                    backgroundColor: 'transparent',
+
+                    borderWidth: 3,
+
+                    tension: 0.4,
+
+                    pointRadius: 4,
+
+                    pointHoverRadius: 7,
+
+                    pointBackgroundColor: '#f2c94c',
+
+                    pointBorderColor: '#ffffff',
+
+                    pointBorderWidth: 2,
+
+                    spanGaps: true
+                },
+
+                {
+                    label: 'عيار 22',
+
+                    data: chartData['22'],
+
+                    borderColor: '#2ecc71',
+
+                    backgroundColor: 'transparent',
+
+                    borderWidth: 3,
+
+                    tension: 0.4,
+
+                    pointRadius: 4,
+
+                    pointHoverRadius: 7,
+
+                    pointBackgroundColor: '#2ecc71',
+
+                    pointBorderColor: '#ffffff',
+
+                    pointBorderWidth: 2,
+
+                    spanGaps: true
+                },
+
+                {
+                    label: 'عيار 21',
+
+                    data: chartData['21'],
+
+                    borderColor: '#3498db',
+
+                    backgroundColor: 'transparent',
+
+                    borderWidth: 3,
+
+                    tension: 0.4,
+
+                    pointRadius: 4,
+
+                    pointHoverRadius: 7,
+
+                    pointBackgroundColor: '#3498db',
+
+                    pointBorderColor: '#ffffff',
+
+                    pointBorderWidth: 2,
+
+                    spanGaps: true
+                },
+
+                {
+                    label: 'عيار 18',
+
+                    data: chartData['18'],
+
+                    borderColor: '#e67e22',
+
+                    backgroundColor: 'transparent',
+
+                    borderWidth: 3,
+
+                    tension: 0.4,
+
+                    pointRadius: 4,
+
+                    pointHoverRadius: 7,
+
+                    pointBackgroundColor: '#e67e22',
+
+                    pointBorderColor: '#ffffff',
+
+                    pointBorderWidth: 2,
+
+                    spanGaps: true
+                }
+
+            ]
+        },
+
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            interaction: {
+                intersect: false,
+                mode: 'index'
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
+
+
+            plugins: {
+
+                legend: {
+
+                    display: true,
+
+                    labels: {
+
+                        color: '#ffffff',
+
+                        usePointStyle: true,
+
+                        padding: 20,
+
+                        font: {
+                            family: 'Cairo',
+                            size: 13
+                        }
                     }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true
+
+
+                tooltip: {
+
+                    callbacks: {
+
+                        title: function(context) {
+
+                            const label = context[0].label;
+
+                            if (!label) {
+                                return '';
+                            }
+
+                            const parts = label.split(' ');
+
+                            if (parts.length < 2) {
+                                return label;
+                            }
+
+                            const time = parts[0];
+                            const date = parts[1];
+
+                            return 'التاريخ: '
+                                + date
+                                + ' | الوقت: '
+                                + time;
+                        },
+
+
+                        label: function(context) {
+
+                            return context.dataset.label
+                                + ': '
+                                + Number(context.parsed.y).toFixed(2)
+                                + ' ريال';
+                        }
+                    }
+                }
+            },
+
+
+            scales: {
+
+                x: {
+
+                    grid: {
+                        display: false
+                    },
+
+                    ticks: {
+
+                        color: '#8f9aaa',
+
+                        autoSkip: true,
+
+                        maxTicksLimit: 8,
+
+                        maxRotation: 0,
+
+                        minRotation: 0,
+
+                        padding: 10,
+
+                        callback: function(value) {
+
+                            const label = this.getLabelForValue(value);
+
+                            if (!label) {
+                                return '';
+                            }
+
+                            const parts = label.split(' ');
+
+                            if (parts.length < 2) {
+                                return label;
+                            }
+
+                            const time = parts[0];
+                            const date = parts[1];
+
+                            return date + ' ' + time;
+                        },
+
+                        font: {
+                            family: 'Cairo',
+                            size: 12
+                        }
+                    }
+                },
+
+
+                y: {
+
+                    beginAtZero: false,
+
+                    grid: {
+                        color: 'rgba(255,255,255,0.05)'
+                    },
+
+                    ticks: {
+
+                        color: '#8f9aaa',
+
+                        font: {
+                            family: 'Cairo'
+                        }
                     }
                 }
             }
-        });
-    }
-</script>
+        }
 
-<script>
-
-const ctx = document.getElementById('goldChart');
-
-if(ctx){
-
-new Chart(ctx,{
-
-type:'line',
-
-data:{
-
-labels:@json($labels),
-
-datasets:[{
-
-label:'سعر الذهب',
-
-data:@json($chartPrices),
-
-borderColor:'#d4af37',
-
-backgroundColor:'rgba(212,175,55,.2)',
-
-fill:true,
-
-tension:.4
-
-}]
-
-},
-
-options:{
-
-responsive:true,
-
-plugins:{
-
-legend:{
-
-display:true
-
-}
-
-}
-
-}
+    });
 
 });
-
-}
-
 </script>
 
-</body>
-</html>
+@endpush

@@ -1,129 +1,496 @@
 /* ===========================
-   GoldTracker Style
+   Global
 =========================== */
 
-body {
-    background-color: #f8f9fa;
-    font-family: Tahoma, Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Navbar */
-
-.navbar {
-    background: linear-gradient(90deg, #d4af37, #f1c40f);
-    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+html{
+    scroll-behavior:smooth;
 }
 
-.navbar-brand {
-    color: #fff !important;
-    font-size: 24px;
-    font-weight: bold;
+body{
+    font-family:'Cairo',sans-serif;
+    background:#0b0f19;
+    color:#fff;
+    overflow-x:hidden;
 }
 
-.nav-link {
-    color: #fff !important;
-    font-weight: 500;
-    transition: 0.3s;
+
+/* ===========================
+   Layout
+=========================== */
+
+.admin-layout{
+    display:flex;
+    min-height:100vh;
+    width:100%;
 }
 
-.nav-link:hover {
-    color: #212529 !important;
+.main-wrapper{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
 }
 
-/* Cards */
-
-.card {
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.1);
-    margin-bottom: 20px;
+.content-area{
+    flex:1;
+    padding:30px;
+    overflow:auto;
 }
 
-/* Buttons */
+/* ===========================
+   Cards
+=========================== */
 
-.btn-gold {
-    background-color: #d4af37;
-    color: white;
-    border: none;
-    transition: .3s;
+.card{
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+    background:#171c26;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
-.btn-gold:hover {
-    background-color: #b8860b;
-    color: white;
+.card-header{
+    padding:18px 22px;
+    font-weight:700;
+    border:none;
 }
 
-/* Table */
-
-.table {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
+.card-body{
+    padding:22px;
 }
 
-.table thead {
-    background: #d4af37;
-    color: white;
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn{
+    border-radius:12px;
+    font-weight:600;
+    transition:.25s;
 }
 
-.table th,
-.table td {
-    vertical-align: middle;
-    text-align: center;
+.btn:hover{
+    transform:translateY(-2px);
 }
 
-.table tbody tr:hover {
-    background: #fff8dc;
+.btn-gold{
+    background:linear-gradient(135deg,#d4af37,#f2c94c);
+    color:#111;
+    border:none;
 }
 
-/* Alerts */
-
-.alert {
-    border-radius: 10px;
+.btn-gold:hover{
+    background:#f2c94c;
+    color:#111;
 }
 
-/* Footer */
 
-footer {
-    margin-top: 50px;
-    background: #212529;
-    color: white;
-    text-align: center;
-    padding: 15px;
+/* ===========================
+   Alerts
+=========================== */
+
+.alert{
+    border:none;
+    border-radius:14px;
 }
 
-/* Pagination */
 
-.pagination {
-    justify-content: center;
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar{
+    width:8px;
 }
 
-.page-link {
-    color: #d4af37;
-    border-radius: 8px;
-    margin: 0 3px;
+::-webkit-scrollbar-thumb{
+    background:#d4af37;
+    border-radius:20px;
 }
 
-.page-item.active .page-link {
-    background: #d4af37;
-    border-color: #d4af37;
-    color: white;
+::-webkit-scrollbar-track{
+    background:#111827;
 }
 
-/* Responsive */
 
-@media (max-width: 768px) {
+/* ===========================
+   Gold Premium Hero
+=========================== */
 
-    .navbar-brand {
-        font-size: 20px;
+.hero-section{
+    position:relative;
+    overflow:hidden;
+
+    min-height:260px;
+    padding:25px 32px;
+
+    border:1px solid #343b46;
+    border-radius:14px;
+
+    background:
+        radial-gradient(
+            circle at 78% 50%,
+            rgba(212,175,55,.14),
+            transparent 32%
+        ),
+        linear-gradient(135deg,#111820,#171d22);
+}
+
+.hero-content{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:210px;
+}
+
+.hero-left{
+    position:relative;
+    z-index:2;
+    width:58%;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    padding:5px 10px;
+    margin-bottom:12px;
+
+    color:#f2c94c;
+
+    border:1px solid #d4af37;
+    border-radius:5px;
+
+    font-size:11px;
+    font-weight:700;
+}
+
+.hero-badge i{
+    color:#fff;
+    font-size:6px;
+}
+
+.hero-welcome{
+    color:#fff;
+    font-size:23px;
+    line-height:1.3;
+}
+
+.hero-title{
+    margin:0;
+
+    color:#fff;
+
+    font-size:50px;
+    font-weight:800;
+
+    line-height:1.1;
+    letter-spacing:-2px;
+}
+
+.hero-title span{
+    color:#d4af37;
+}
+
+.hero-subtitle{
+    margin-top:7px;
+
+    color:#e5e7eb;
+
+    font-size:18px;
+    font-weight:500;
+}
+
+.hero-text{
+    margin-top:18px;
+    margin-bottom:0;
+
+    color:#aeb7c3;
+
+    font-size:14px;
+    line-height:1.9;
+}
+
+.hero-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:20px;
+}
+
+.hero-actions .btn-gold,
+.hero-outline-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    min-height:42px;
+    padding:9px 20px;
+
+    border-radius:6px;
+
+    font-size:14px;
+    font-weight:700;
+
+    text-decoration:none;
+}
+
+.hero-outline-btn{
+    color:#fff;
+    border:1px solid #68717d;
+}
+
+.hero-outline-btn:hover{
+    color:#d4af37;
+    border-color:#d4af37;
+}
+
+
+/* ===========================
+   Hero Gold Image
+=========================== */
+
+.hero-right{
+    width:42%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.gold-market-art{
+    position:relative;
+
+    width:480px;
+    height:300px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.gold-hero-image{
+    width:100%;
+    max-width:520px;
+    height:auto;
+
+    object-fit:contain;
+
+    transform:scale(1.55);
+
+    filter:
+        drop-shadow(0 25px 45px rgba(212,175,55,.35))
+        drop-shadow(0 0 30px rgba(212,175,55,.15));
+}
+
+
+/* ===========================
+   Gold Premium Stats
+=========================== */
+
+.stats-card{
+    position:relative;
+
+    width:100%;
+    min-height:115px;
+    padding:20px 22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #171c26,
+        #0f141c
+    );
+
+    border:1px solid #303846;
+    border-radius:10px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.20);
+
+    transition:.25s;
+}
+
+.stats-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(212,175,55,.55);
+}
+
+.stats-content{
+    position:relative;
+    z-index:2;
+}
+
+.stats-content span{
+    display:block;
+    margin-bottom:5px;
+
+    color:#aeb7c3;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+.stats-content h2{
+    margin:0;
+
+    color:#fff;
+
+    font-size:25px;
+    font-weight:800;
+}
+
+.stats-content small{
+    display:block;
+    margin-top:5px;
+
+    color:#7f8997;
+
+    font-size:11px;
+}
+
+.stats-icon{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    font-size:20px;
+}
+
+.stats-blue .stats-icon{
+    color:#4da3ff;
+    background:rgba(77,163,255,.12);
+}
+
+.stats-green .stats-icon{
+    color:#2ecc71;
+    background:rgba(46,204,113,.12);
+}
+
+.stats-green .stats-content small{
+    color:#2ecc71;
+}
+
+.stats-red .stats-icon{
+    color:#e74c3c;
+    background:rgba(231,76,60,.12);
+}
+
+.stats-red .stats-content small{
+    color:#e74c3c;
+}
+
+.stats-gold{
+    border-color:rgba(212,175,55,.35);
+}
+
+.stats-gold .stats-icon{
+    color:#d4af37;
+    background:rgba(212,175,55,.12);
+}
+
+.stats-gold .stats-content small{
+    color:#d4af37;
+}
+
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+    .content-area{
+        padding:20px;
     }
 
-    .table {
-        font-size: 14px;
+    .hero-section{
+        padding:28px 24px;
     }
 
-    .btn {
-        font-size: 14px;
+    .hero-content{
+        flex-direction:column;
     }
 
+    .hero-left,
+    .hero-right{
+        width:100%;
+    }
+
+    .hero-title{
+        font-size:42px;
+    }
+
+    .hero-right{
+        margin-top:20px;
+    }
+
+    .gold-market-art{
+        width:100%;
+        height:250px;
+    }
+
+    .gold-hero-image{
+        max-width:420px;
+        transform:scale(1.25);
+    }
+}
+
+
+@media(max-width:576px){
+
+    .content-area{
+        padding:15px;
+    }
+
+    .hero-title{
+        font-size:36px;
+    }
+
+    .hero-welcome{
+        font-size:20px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .hero-actions .btn-gold,
+    .hero-outline-btn{
+        width:100%;
+    }
+
+    .gold-market-art{
+        height:210px;
+    }
+
+    .gold-hero-image{
+        max-width:320px;
+        transform:scale(1);
+    }
+
+    .stats-card{
+        min-height:105px;
+    }
 }

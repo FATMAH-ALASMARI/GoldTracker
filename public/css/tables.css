@@ -1,0 +1,410 @@
+/* ===========================
+   Gold Premium Table
+=========================== */
+
+.gold-table-card{
+    overflow:hidden;
+
+    background:#171d27;
+
+    border:1px solid #303846;
+    border-radius:18px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.gold-table-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:24px 28px;
+
+    background:linear-gradient(
+        135deg,
+        #171d27,
+        #111820
+    );
+
+    border-bottom:1px solid #303846;
+}
+
+.gold-table-title{
+    margin:0;
+
+    color:#fff;
+
+    font-size:21px;
+    font-weight:800;
+}
+
+.gold-table-title i{
+    margin-left:8px;
+    color:#d4af37;
+}
+
+.gold-table-subtitle{
+    margin:7px 0 0;
+
+    color:#8f9aaa;
+
+    font-size:13px;
+}
+
+.gold-table-count{
+    padding:7px 14px;
+
+    color:#f2c94c;
+
+    border:1px solid rgba(212,175,55,.5);
+    border-radius:7px;
+
+    font-size:12px;
+    font-weight:800;
+}
+
+
+/* ===========================
+   Table
+=========================== */
+
+.gold-premium-table{
+    width:100%;
+    margin:0;
+
+    color:#fff;
+
+    --bs-table-bg:transparent;
+    --bs-table-color:#fff;
+    --bs-table-hover-bg:rgba(212,175,55,.04);
+    --bs-table-hover-color:#fff;
+}
+
+.gold-premium-table thead{
+    background:#101720;
+}
+
+.gold-premium-table thead th{
+    padding:18px 22px;
+
+    color:#d4af37;
+
+    border-bottom:1px solid rgba(212,175,55,.25);
+
+    font-size:13px;
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.gold-premium-table thead th a{
+    color:#d4af37;
+    text-decoration:none;
+}
+
+.gold-premium-table thead th a:hover{
+    color:#f2c94c;
+}
+
+.sort-icon{
+    margin-right:5px;
+
+    color:#fff;
+
+    font-size:9px;
+}
+
+
+/* ===========================
+   Rows
+=========================== */
+
+.gold-premium-table tbody td{
+    padding:18px 22px;
+
+    color:#dce2ea;
+
+    border-bottom:1px solid #29313d;
+
+    font-size:14px;
+
+    vertical-align:middle;
+}
+
+.gold-premium-table tbody tr:last-child td{
+    border-bottom:none;
+}
+
+.gold-premium-table tbody tr{
+    transition:.2s ease;
+}
+
+.gold-premium-table tbody tr:hover{
+    background:rgba(212,175,55,.04);
+}
+
+
+/* ===========================
+   Row Number
+=========================== */
+
+.row-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    width:32px;
+    height:32px;
+
+    color:#111;
+
+    background:linear-gradient(
+        135deg,
+        #f2c94c,
+        #d4af37
+    );
+
+    border-radius:50%;
+
+    font-size:12px;
+    font-weight:800;
+}
+
+
+/* ===========================
+   Karat
+=========================== */
+
+.karat-cell{
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+}
+
+.karat-icon{
+    width:38px;
+    height:38px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#d4af37;
+
+    background:rgba(212,175,55,.10);
+
+    border-radius:10px;
+}
+
+.karat-cell strong{
+    color:#fff;
+
+    font-size:14px;
+}
+
+
+/* ===========================
+   Price
+=========================== */
+
+.gold-price-value{
+    color:#2ecc71;
+
+    font-size:16px;
+    font-weight:800;
+}
+
+.currency-label{
+    margin-right:4px;
+
+    color:#7f8997;
+
+    font-size:11px;
+}
+
+
+/* ===========================
+   Date
+=========================== */
+
+.date-value{
+    display:inline-flex;
+    align-items:center;
+
+    gap:7px;
+
+    color:#aeb7c3;
+}
+
+.date-value i{
+    color:#d4af37;
+}
+
+
+/* ===========================
+   Actions
+=========================== */
+
+.gold-table-actions{
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+}
+
+.gold-table-actions form{
+    margin:0;
+}
+
+.table-edit-btn,
+.table-delete-btn{
+    min-height:34px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:6px;
+
+    padding:7px 12px;
+
+    border-radius:7px;
+
+    font-size:12px;
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.2s ease;
+}
+
+.table-edit-btn{
+    color:#111;
+
+    background:#d4af37;
+
+    border:1px solid #d4af37;
+}
+
+.table-edit-btn:hover{
+    color:#111;
+
+    background:#f2c94c;
+
+    transform:translateY(-2px);
+}
+
+.table-delete-btn{
+    color:#ff6b6b;
+
+    background:rgba(231,76,60,.10);
+
+    border:1px solid rgba(231,76,60,.35);
+}
+
+.table-delete-btn:hover{
+    color:#fff;
+
+    background:#e74c3c;
+
+    border-color:#e74c3c;
+
+    transform:translateY(-2px);
+}
+
+
+/* ===========================
+   Empty Table
+=========================== */
+
+.gold-empty-table{
+    padding:60px !important;
+
+    text-align:center;
+}
+
+.gold-empty-table i{
+    color:#d4af37;
+
+    font-size:35px;
+}
+
+.gold-empty-table p{
+    margin:12px 0 0;
+
+    color:#8f9aaa;
+}
+
+
+/* ===========================
+   Pagination
+=========================== */
+
+.gold-pagination{
+    display:flex;
+    justify-content:center;
+}
+
+.gold-pagination .pagination{
+    gap:6px;
+}
+
+.gold-pagination .page-link{
+    color:#d4af37;
+
+    background:#171d27;
+
+    border:1px solid #303846;
+    border-radius:7px !important;
+}
+
+.gold-pagination .page-link:hover{
+    color:#111;
+
+    background:#d4af37;
+
+    border-color:#d4af37;
+}
+
+.gold-pagination .page-item.active .page-link{
+    color:#111;
+
+    background:#d4af37;
+
+    border-color:#d4af37;
+}
+
+.gold-pagination .page-item.disabled .page-link{
+    color:#5f6875;
+
+    background:#111820;
+
+    border-color:#29313d;
+}
+
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .gold-table-header{
+        padding:20px;
+    }
+
+    .gold-table-count{
+        display:none;
+    }
+
+    .gold-premium-table thead th,
+    .gold-premium-table tbody td{
+        padding:15px;
+    }
+
+    .gold-table-actions{
+        min-width:150px;
+    }
+
+}

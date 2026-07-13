@@ -1,0 +1,345 @@
+/* ==========================
+   Search Card
+========================== */
+
+.search-card{
+    background:#171C26;
+    border:none;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* ==========================
+   Inputs
+========================== */
+
+.search-card .form-control{
+
+    background:#0F1724;
+    border:1px solid #2A3242;
+    color:#fff;
+    height:52px;
+    border-radius:12px;
+
+}
+
+.search-card .form-control:focus{
+
+    background:#0F1724;
+    color:#fff;
+    border-color:#D4AF37;
+    box-shadow:0 0 0 .2rem rgba(212,175,55,.2);
+
+}
+
+.search-card .form-control::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.btn-search{
+
+    background:#D4AF37;
+    color:#111;
+    font-weight:bold;
+    border:none;
+    border-radius:12px;
+    height:52px;
+
+}
+
+.btn-search:hover{
+
+    background:#F2C94C;
+    color:#111;
+
+}
+
+.btn-reset{
+
+    background:#374151;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    height:52px;
+
+}
+
+.btn-reset:hover{
+
+    background:#4B5563;
+    color:#fff;
+
+}/* ==========================
+   Search Inputs
+========================== */
+
+.search-card .row{
+    align-items:center;
+}
+
+.search-card input{
+    transition:.3s;
+}
+
+.search-card input:hover{
+    border-color:#D4AF37;
+}
+
+.search-card input:focus{
+    transform:translateY(-2px);
+}
+
+/* Buttons */
+
+.btn-search,
+.btn-reset{
+
+    font-weight:700;
+    letter-spacing:.3px;
+
+}
+
+.btn-search{
+
+    background:linear-gradient(135deg,#F2C94C,#D4AF37);
+
+}
+
+.btn-reset{
+
+    background:#394150;
+
+}
+
+.btn-reset:hover{
+
+    background:#4B5563;
+
+}
+/* ===========================
+   Gold Premium Search
+=========================== */
+
+.gold-search-card{
+    overflow:hidden;
+    background:#171d27;
+    border:1px solid #303846;
+    border-radius:18px;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.gold-search-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 28px;
+
+    background:linear-gradient(
+        135deg,
+        #171d27,
+        #111820
+    );
+
+    border-bottom:1px solid #303846;
+}
+
+.gold-search-title{
+    margin:0;
+    color:#fff;
+    font-size:20px;
+    font-weight:800;
+}
+
+.gold-search-title i{
+    margin-left:8px;
+    color:#d4af37;
+}
+
+.gold-search-subtitle{
+    margin:7px 0 0;
+    color:#8f9aaa;
+    font-size:13px;
+}
+
+.gold-search-badge{
+    padding:7px 13px;
+
+    color:#f2c94c;
+    border:1px solid rgba(212,175,55,.5);
+    border-radius:7px;
+
+    font-size:11px;
+    font-weight:800;
+}
+
+.gold-search-body{
+    padding:24px 28px;
+}
+
+
+/* ===========================
+   Labels
+=========================== */
+
+.gold-form-label{
+    display:block;
+    margin-bottom:9px;
+
+    color:#aeb7c3;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+.gold-form-label i{
+    margin-left:6px;
+    color:#d4af37;
+}
+
+
+/* ===========================
+   Inputs
+=========================== */
+
+.gold-form-control{
+    width:100%;
+    height:46px;
+
+    padding:0 15px;
+
+    color:#fff;
+    background:#101720;
+
+    border:1px solid #303846;
+    border-radius:8px;
+
+    outline:none;
+
+    font-family:'Cairo',sans-serif;
+    font-size:13px;
+
+    transition:.25s ease;
+}
+
+.gold-form-control::placeholder{
+    color:#687382;
+}
+
+.gold-form-control:focus{
+    border-color:#d4af37;
+
+    box-shadow:
+        0 0 0 3px rgba(212,175,55,.10);
+}
+
+.gold-form-control[type="date"]{
+    color-scheme:dark;
+}
+
+
+/* ===========================
+   Search Button
+=========================== */
+
+.gold-search-btn{
+    width:100%;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    color:#111;
+
+    background:linear-gradient(
+        135deg,
+        #d4af37,
+        #f2c94c
+    );
+
+    border:none;
+    border-radius:8px;
+
+    font-family:'Cairo',sans-serif;
+    font-size:14px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.gold-search-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(212,175,55,.20);
+}
+
+
+/* ===========================
+   Reset Button
+=========================== */
+
+.gold-reset-btn{
+    width:100%;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    color:#dce2ea;
+
+    background:#202938;
+
+    border:1px solid #3b4656;
+    border-radius:8px;
+
+    font-size:14px;
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.25s ease;
+}
+
+.gold-reset-btn:hover{
+    color:#f2c94c;
+
+    border-color:#d4af37;
+
+    transform:translateY(-2px);
+}
+
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .gold-search-header{
+        padding:20px;
+    }
+
+    .gold-search-body{
+        padding:20px;
+    }
+
+    .gold-search-badge{
+        display:none;
+    }
+
+}

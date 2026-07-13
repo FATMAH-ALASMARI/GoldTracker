@@ -1,0 +1,293 @@
+/* ==========================================
+   Gold Premium Statistics Cards
+========================================== */
+
+.stats-card{
+    position:relative;
+
+    width:100%;
+    min-height:115px;
+
+    padding:20px 22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+
+    overflow:hidden;
+
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #171c26,
+        #0f141c
+    );
+
+    border:1px solid #303846;
+    border-radius:12px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.stats-card:hover{
+    transform:translateY(-4px);
+
+    border-color:rgba(212,175,55,.55);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35),
+        0 0 20px rgba(212,175,55,.08);
+}
+
+
+/* ==========================================
+   Card Gold Line
+========================================== */
+
+.stats-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:3px;
+    height:100%;
+
+    background:linear-gradient(
+        180deg,
+        #f2c94c,
+        #775f0e
+    );
+}
+
+
+/* ==========================================
+   Statistics Content
+========================================== */
+
+.stats-content{
+    position:relative;
+    z-index:2;
+
+    flex:1;
+}
+
+.stats-content span{
+    display:block;
+
+    margin-bottom:5px;
+
+    color:#aeb7c3;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+.stats-content h2{
+    margin:0;
+
+    color:#fff;
+
+    font-size:25px;
+    font-weight:800;
+}
+
+.stats-content small{
+    display:block;
+
+    margin-top:5px;
+
+    color:#7f8997;
+
+    font-size:11px;
+}
+
+
+/* ==========================================
+   Statistics Icons
+========================================== */
+
+.stats-icon{
+    position:relative;
+    z-index:2;
+
+    width:48px;
+    height:48px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-size:20px;
+}
+
+
+/* Blue */
+
+.stats-blue{
+    background:linear-gradient(
+        135deg,
+        #171c26,
+        #0f141c
+    );
+}
+
+.stats-blue .stats-icon{
+    color:#4da3ff;
+    background:rgba(77,163,255,.12);
+}
+
+
+/* Green */
+
+.stats-green{
+    background:linear-gradient(
+        135deg,
+        #171c26,
+        #0f141c
+    );
+}
+
+.stats-green .stats-icon{
+    color:#2ecc71;
+    background:rgba(46,204,113,.12);
+}
+
+.stats-green .stats-content small{
+    color:#2ecc71;
+}
+
+
+/* Red */
+
+.stats-red{
+    background:linear-gradient(
+        135deg,
+        #171c26,
+        #0f141c
+    );
+}
+
+.stats-red .stats-icon{
+    color:#e74c3c;
+    background:rgba(231,76,60,.12);
+}
+
+.stats-red .stats-content small{
+    color:#e74c3c;
+}
+
+
+/* Gold */
+
+.stats-gold{
+    background:linear-gradient(
+        135deg,
+        #171c26,
+        #0f141c
+    );
+
+    border-color:rgba(212,175,55,.35);
+}
+
+.stats-gold .stats-icon{
+    color:#d4af37;
+    background:rgba(212,175,55,.12);
+}
+
+.stats-gold .stats-content span,
+.stats-gold .stats-content h2{
+    color:#fff;
+}
+
+.stats-gold .stats-content small{
+    color:#d4af37;
+}
+
+
+/* ==========================================
+   System Health Cards
+========================================== */
+
+.system-health-page .card{
+    background:#171C26;
+    color:#FFFFFF;
+
+    border:1px solid rgba(212,175,55,.12);
+
+    border-radius:18px;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.22);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+}
+
+.system-health-page .card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(212,175,55,.45);
+}
+
+.system-health-page .card-body{
+    color:#FFFFFF;
+}
+
+.system-health-page .card h3,
+.system-health-page .card h5{
+    color:#FFFFFF;
+}
+
+.system-health-page .card span,
+.system-health-page .card strong{
+    color:#AEB8C8;
+}
+
+.system-health-page .card .text-success{
+    color:#22C55E !important;
+}
+
+.system-health-page .card .text-muted{
+    color:#8FA0B8 !important;
+}
+
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:768px){
+
+    .stats-card{
+        min-height:105px;
+        padding:18px;
+    }
+
+    .stats-icon{
+        width:44px;
+        height:44px;
+
+        font-size:19px;
+    }
+
+    .stats-content h2{
+        font-size:23px;
+    }
+
+    .system-health-page .card{
+        width:100%;
+    }
+}

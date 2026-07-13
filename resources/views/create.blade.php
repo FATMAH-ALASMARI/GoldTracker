@@ -6,13 +6,13 @@
 
     <h2>إضافة سعر الذهب</h2>
 
-    <a href="/">
+    <a href="{{ route('gold.index') }}">
         العودة للأسعار
     </a>
 
     <br><br>
 
-    <form action="/gold" method="POST">
+    <form action="{{ route('gold.store') }}" method="POST">
 
         @csrf
 

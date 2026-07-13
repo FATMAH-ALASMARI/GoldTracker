@@ -1,0 +1,694 @@
+/* ===========================
+   GoldTracker Dashboard
+=========================== */
+
+
+/* ===========================
+   Dashboard Content
+=========================== */
+
+.content-area{
+    flex:1;
+    min-width:0;
+    padding:24px 28px;
+}
+
+.page-wrapper{
+    width:100%;
+    max-width:100%;
+}
+
+.content-area h2{
+    margin-bottom:20px;
+    font-size:26px;
+    font-weight:700;
+}
+
+
+/* ===========================
+   Dashboard Grid
+=========================== */
+
+.row.g-4{
+    --bs-gutter-x:1.5rem;
+    --bs-gutter-y:1.5rem;
+}
+
+.row.g-4 > [class*="col-"]{
+    display:flex;
+}
+
+.row.g-4 .card{
+    width:100%;
+}
+
+
+/* ===========================
+   General Cards
+=========================== */
+
+.card{
+    border:none;
+    border-radius:16px;
+    overflow:hidden;
+}
+
+.card-body{
+    padding:20px;
+}
+
+.card-body h1,
+.card-body h2,
+.card-body h3{
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.card-body p{
+    margin:0;
+    font-size:14px;
+}
+
+
+/* ===========================
+   Dashboard Stats Cards
+=========================== */
+
+.stat-card{
+    min-height:82px;
+
+    background:#182334;
+
+    border:1px solid rgba(212,175,55,.20);
+    border-radius:14px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.20);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+}
+
+.stat-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(212,175,55,.55);
+}
+
+.stat-card .card-body{
+    width:100%;
+
+    padding:12px 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.stat-content{
+    display:flex;
+    flex-direction:column;
+    gap:1px;
+}
+
+.stat-label{
+    display:block;
+
+    color:#AEB8C8;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+.stat-value{
+    color:#FFFFFF;
+
+    font-size:24px;
+    font-weight:800;
+
+    line-height:1;
+}
+
+.stat-text,
+.stat-subtitle{
+    display:block;
+
+    color:#8FA0B8;
+
+    font-size:12px;
+
+    margin-top:3px;
+}
+
+
+/* ===========================
+   Statistics Icons
+=========================== */
+
+.stat-icon{
+    width:44px;
+    height:44px;
+
+    flex-shrink:0;
+
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.stat-icon i{
+    font-size:20px;
+}
+
+.stat-icon.success{
+    background:rgba(34,197,94,.15);
+    color:#22C55E;
+}
+
+.stat-icon.danger{
+    background:rgba(239,68,68,.15);
+    color:#EF4444;
+}
+
+
+/* ===========================
+   Legacy Dashboard Chart
+=========================== */
+
+.dashboard-chart-card{
+    width:100%;
+    max-width:850px;
+
+    margin:10px auto 0;
+
+    background:#171C26;
+
+    border-radius:18px;
+    overflow:hidden;
+
+    box-shadow:0 14px 32px rgba(0,0,0,.28);
+}
+
+.dashboard-chart-card .card-header{
+    min-height:90px;
+
+    padding:20px 28px;
+
+    background:#FFFFFF;
+    color:#111111;
+}
+
+.dashboard-chart-card .card-body{
+    position:relative;
+
+    height:300px;
+
+    padding:25px 30px;
+}
+
+#goldChart{
+    display:block;
+
+    width:100% !important;
+    height:100% !important;
+
+    max-height:100%;
+}
+
+
+/* ===========================
+   Legacy Chart Text
+=========================== */
+
+.chart-title{
+    margin:0;
+
+    font-size:23px;
+    font-weight:800;
+}
+
+.chart-subtitle{
+    margin-top:4px;
+
+    color:#555555;
+
+    font-size:14px;
+}
+
+.chart-badge{
+    padding:9px 18px;
+
+    background:#FFB800;
+    color:#111111;
+
+    border-radius:8px;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+
+/* ===========================
+   Gold Chart
+=========================== */
+
+.gold-chart-card .gold-chart-header{
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-end;
+    justify-content:flex-start;
+
+    gap:14px;
+
+    direction:rtl;
+    text-align:right;
+
+    background:linear-gradient(
+        135deg,
+        #171d27,
+        #111820
+    ) !important;
+}
+
+.gold-chart-card .gold-chart-header > div:first-child{
+    width:100%;
+    text-align:right;
+}
+
+.gold-chart-card .gold-chart-title{
+    margin:0;
+
+    color:#ffffff !important;
+
+    font-size:23px;
+    font-weight:800;
+}
+
+.gold-chart-card .gold-chart-title i{
+    color:#d4af37 !important;
+}
+
+.gold-chart-card .gold-chart-subtitle{
+    margin:6px 0 0;
+
+    color:#9ca3af !important;
+
+    font-size:14px;
+}
+
+
+/* ===========================
+   Gold Chart Status
+=========================== */
+
+.gold-chart-status{
+    width:100%;
+
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+
+    direction:rtl;
+}
+
+.gold-live-badge{
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    padding:10px 16px;
+
+    background:rgba(212,175,55,.08);
+
+    border:1px solid rgba(212,175,55,.35);
+    border-radius:12px;
+
+    direction:rtl;
+}
+
+.gold-live-badge-title{
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    color:#f2c94c;
+
+    font-size:13px;
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.gold-live-dot{
+    width:8px;
+    height:8px;
+
+    flex-shrink:0;
+
+    background:#22c55e;
+
+    border-radius:50%;
+
+    box-shadow:0 0 10px rgba(34,197,94,.75);
+
+    animation:goldLivePulse 1.8s infinite;
+}
+
+.gold-live-badge-time{
+    display:flex;
+    align-items:center;
+
+    gap:6px;
+
+    color:#9ca3af;
+
+    font-size:12px;
+
+    white-space:nowrap;
+}
+
+.gold-live-badge-time i{
+    color:#d4af37;
+}
+
+
+/* ===========================
+   Gold Chart Wrapper
+=========================== */
+
+.gold-chart-wrapper{
+    position:relative;
+
+    width:100%;
+    height:100%;
+}
+
+
+/* ===========================
+   Gold Live Animation
+=========================== */
+
+@keyframes goldLivePulse{
+
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.45;
+        transform:scale(.75);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+/* ===========================
+   Historical Chart Message
+=========================== */
+
+.chart-data-message{
+    position:absolute;
+
+    left:50%;
+    bottom:20px;
+
+    transform:translateX(-50%);
+
+    padding:10px 18px;
+
+    background:rgba(212,175,55,.08);
+
+    border:1px solid rgba(212,175,55,.30);
+    border-radius:10px;
+
+    color:#d4af37;
+
+    font-size:13px;
+    font-weight:600;
+
+    white-space:nowrap;
+
+    z-index:5;
+}
+
+.chart-data-message i{
+    margin-left:6px;
+}
+
+
+/* ===========================
+   Tables
+=========================== */
+
+.table{
+    margin-bottom:0;
+}
+
+.table th{
+    font-weight:700;
+}
+
+.table td,
+.table th{
+    vertical-align:middle;
+}
+
+
+/* ===========================
+   Spacing
+=========================== */
+
+.mt-5{
+    margin-top:2rem !important;
+}
+
+.mt-4{
+    margin-top:1.5rem !important;
+}
+
+.mb-4{
+    margin-bottom:1.5rem !important;
+}
+
+
+/* ===========================
+   Laptop
+=========================== */
+
+@media(max-width:1199px){
+
+    .content-area{
+        padding:20px;
+    }
+
+    .stat-card{
+        min-height:78px;
+    }
+
+    .stat-card .card-body{
+        padding:11px 16px;
+    }
+
+    .stat-value{
+        font-size:23px;
+    }
+
+    .stat-icon{
+        width:42px;
+        height:42px;
+    }
+
+    .stat-icon i{
+        font-size:19px;
+    }
+
+    .dashboard-chart-card{
+        max-width:760px;
+    }
+
+    .dashboard-chart-card .card-body{
+        height:280px;
+    }
+
+}
+
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media(max-width:992px){
+
+    .content-area{
+        width:100%;
+        padding:18px;
+    }
+
+    .dashboard-chart-card{
+        max-width:100%;
+    }
+
+}
+
+
+/* ===========================
+   Small Screens
+=========================== */
+
+@media(max-width:768px){
+
+    .stat-card{
+        min-height:74px;
+    }
+
+    .stat-card .card-body{
+        padding:10px 15px;
+    }
+
+    .stat-label{
+        font-size:13px;
+    }
+
+    .stat-value{
+        font-size:22px;
+    }
+
+    .stat-text,
+    .stat-subtitle{
+        font-size:11px;
+    }
+
+    .stat-icon{
+        width:40px;
+        height:40px;
+    }
+
+    .stat-icon i{
+        font-size:18px;
+    }
+
+    .dashboard-chart-card{
+        width:100%;
+        margin-top:10px;
+    }
+
+    .dashboard-chart-card .card-body{
+        height:280px;
+        padding:20px;
+    }
+
+    .gold-live-badge{
+        flex-wrap:wrap;
+    }
+
+}
+
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media(max-width:576px){
+
+    .content-area{
+        padding:12px;
+    }
+
+    .stat-card{
+        min-height:70px;
+    }
+
+    .stat-card .card-body{
+        padding:9px 13px;
+    }
+
+    .stat-label{
+        font-size:12px;
+    }
+
+    .stat-value{
+        font-size:20px;
+    }
+
+    .stat-text,
+    .stat-subtitle{
+        font-size:10px;
+    }
+
+    .stat-icon{
+        width:38px;
+        height:38px;
+
+        border-radius:10px;
+    }
+
+    .stat-icon i{
+        font-size:17px;
+    }
+
+    .dashboard-chart-card .card-header{
+        min-height:80px;
+        padding:16px;
+    }
+
+    .chart-title{
+        font-size:19px;
+    }
+
+    .dashboard-chart-card .card-body{
+        height:250px;
+        padding:18px 12px;
+    }
+
+    .gold-live-badge{
+        gap:7px;
+
+        padding:8px 12px;
+    }
+
+    .gold-live-badge-title{
+        font-size:12px;
+    }
+
+    .gold-live-badge-time{
+        font-size:11px;
+    }
+
+}
+/* ===========================
+   Gold Chart 100% View Fix
+=========================== */
+
+.gold-chart-card{
+    min-height:380px;
+}
+
+.gold-chart-card .gold-chart-header{
+    padding:24px 28px 18px;
+}
+
+.gold-chart-body{
+    position:relative;
+    height:210px;
+    padding:0 10px 18px;
+}
+
+.gold-chart-wrapper{
+    width:100%;
+    height:100%;
+}
+
+#pricesChart{
+    width:100% !important;
+    height:100% !important;
+}
