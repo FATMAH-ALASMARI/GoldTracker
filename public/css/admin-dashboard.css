@@ -95,16 +95,20 @@
 }
 
 .dashboard-metric-card{
-    min-height:105px;
-    padding:18px 22px;
+    min-height:130px;
+    padding:22px 24px;
 
     display:flex;
+    flex-direction:row;
     align-items:center;
     justify-content:space-between;
+    gap:20px;
+
+    direction:rtl;
 
     background:#111b29;
     border:1px solid rgba(255,255,255,.10);
-    border-radius:12px;
+    border-radius:16px;
 
     box-shadow:0 10px 25px rgba(0,0,0,.18);
 
@@ -114,30 +118,34 @@
 }
 
 .dashboard-metric-card .metric-icon{
-    width:48px;
-    height:48px;
+    flex:0 0 54px;
+
+    width:54px;
+    height:54px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border-radius:12px;
+    border-radius:14px;
 
-    background:rgba(212,175,55,.10);
+    background:rgba(212,175,55,.12);
     color:#E0B82F;
 
-    font-size:22px;
+    font-size:24px;
 }
 
 .dashboard-metric-card .metric-content{
+    flex:1;
+    min-width:0;
     text-align:right;
 }
 
 .dashboard-metric-card .metric-content h2{
-    margin:0 0 5px;
+    margin:0 0 8px;
 
     color:#FFFFFF;
-    font-size:25px;
+    font-size:28px;
     font-weight:800;
 }
 
@@ -145,15 +153,13 @@
     margin:0;
 
     color:#B6C3D5;
-    font-size:14px;
+    font-size:15px;
 }
 
 .dashboard-metric-card:hover{
-    transform:translateY(-2px);
+    transform:translateY(-3px);
     border-color:rgba(212,175,55,.35);
 }
-
-
 /* ===========================
    Responsive
 =========================== */
