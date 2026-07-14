@@ -18,13 +18,14 @@
         rel="stylesheet">
 
 
-    <!-- Font Awesome -->
+    <!-- Bootstrap Icons -->
 
-    
-     <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- Font Awesome -->
 
     <link
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -108,6 +109,21 @@
         <div class="navbar-actions">
 
 
+            <!-- Mobile Menu Button -->
+
+            <button
+                type="button"
+                class="icon-btn mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="فتح القائمة">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <!-- Notifications -->
+
             <button
                 type="button"
                 class="icon-btn"
@@ -117,6 +133,8 @@
 
             </button>
 
+
+            <!-- Settings -->
 
             <button
                 type="button"
@@ -182,7 +200,7 @@
 
         <!-- Sidebar -->
 
-        <aside class="sidebar">
+        <aside class="sidebar" id="adminSidebar">
 
             @include('admin.sidebar')
 
@@ -243,6 +261,31 @@
     <!-- Chart JS -->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- Mobile Sidebar -->
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+            const adminSidebar = document.getElementById('adminSidebar');
+
+            if (!mobileMenuBtn || !adminSidebar) {
+                return;
+            }
+
+            mobileMenuBtn.addEventListener('click', function () {
+
+                adminSidebar.classList.toggle('mobile-open');
+
+            });
+
+        });
+
+    </script>
 
 
     @stack('scripts')
