@@ -4,7 +4,7 @@
 
 - [x] Refactor dashboard.css
 - [ ] Improve Dashboard Hero
-- [ ] Improve Statistics Cards
+- [x] Improve Statistics Cards
 - [ ] Improve Gold Chart
 - [ ] Improve Latest Users Section
 - [ ] Responsive Review

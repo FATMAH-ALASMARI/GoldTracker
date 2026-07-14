@@ -1,76 +1,69 @@
-<div class="row g-4">
+<div class="row g-4 dashboard-system-stats">
 
+    {{-- عدد المستخدمين --}}
     <div class="col-lg-3 col-md-6">
-        <div class="card dashboard-card users-card h-100 border-0 shadow-sm">
-            <div class="card-body text-center">
+        <div class="dashboard-metric-card">
 
-                <div class="card-icon bg-primary-subtle text-primary">
-                    <i class="bi bi-people-fill"></i>
-                </div>
-
-                <h2 class="mt-4 fw-bold">{{ $users }}</h2>
-
-                <p class="text-muted mb-0">
-                    عدد المستخدمين
-                </p>
-
+            <div class="metric-icon">
+                <i class="bi bi-people-fill"></i>
             </div>
+
+            <div class="metric-content">
+                <h2>{{ $users }}</h2>
+                <p>عدد المستخدمين</p>
+            </div>
+
         </div>
     </div>
 
+    {{-- أسعار الذهب --}}
     <div class="col-lg-3 col-md-6">
-        <div class="card dashboard-card prices-card h-100 border-0 shadow-sm">
-            <div class="card-body text-center">
+        <div class="dashboard-metric-card">
 
-                <div class="card-icon bg-success-subtle text-success">
-                    <i class="bi bi-cash-stack"></i>
-                </div>
-
-                <h2 class="mt-4 fw-bold">{{ $prices }}</h2>
-
-                <p class="text-muted mb-0">
-                    أسعار الذهب
-                </p>
-
+            <div class="metric-icon">
+                <i class="bi bi-tag-fill"></i>
             </div>
+
+            <div class="metric-content">
+                <h2>{{ $prices }}</h2>
+                <p>أسعار الذهب</p>
+            </div>
+
         </div>
     </div>
 
+    {{-- العمليات --}}
     <div class="col-lg-3 col-md-6">
-        <div class="card dashboard-card logs-card h-100 border-0 shadow-sm">
-            <div class="card-body text-center">
+        <div class="dashboard-metric-card">
 
-                <div class="card-icon bg-warning-subtle text-warning">
-                    <i class="bi bi-clock-history"></i>
-                </div>
-
-                <h2 class="mt-4 fw-bold">{{ $logs }}</h2>
-
-                <p class="text-muted mb-0">
-                    العمليات
-                </p>
-
+            <div class="metric-icon">
+                <i class="bi bi-folder-fill"></i>
             </div>
+
+            <div class="metric-content">
+                <h2>{{ $logs }}</h2>
+                <p>العمليات</p>
+            </div>
+
         </div>
     </div>
 
+    {{-- متوسط السعر --}}
     <div class="col-lg-3 col-md-6">
-        <div class="card dashboard-card avg-card h-100 border-0 shadow-sm">
-            <div class="card-body text-center">
+        <div class="dashboard-metric-card">
 
-                <div class="card-icon bg-danger-subtle text-danger">
-                    <i class="bi bi-graph-up-arrow"></i>
-                </div>
+            <div class="metric-icon">
+                <i class="bi bi-graph-up-arrow"></i>
+            </div>
 
-                <h2 class="mt-4 fw-bold">
+            <div class="metric-content">
+                <h2>
                     {{ number_format(\App\Models\GoldPrice::avg('price'), 2) }}
                 </h2>
 
-                <p class="text-muted mb-0">
-                    متوسط السعر
-                </p>
-
+                <p>متوسط السعر</p>
             </div>
+
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 <div class="row g-4 mb-2">
 
-    <!-- أعلى سعر -->
+    {{-- أعلى سعر --}}
     <div class="col-lg-6">
 
         <div class="card stat-card stat-success">
@@ -13,20 +13,26 @@
                         أعلى سعر
                     </span>
 
-                    <h2 class="stat-value mt-2">
-                        {{ number_format(\App\Models\GoldPrice::max('price'), 2) }}
-                    </h2>
+                    <div class="stat-price-row">
+
+                        <h2 class="stat-value">
+                            {{ number_format(\App\Models\GoldPrice::max('price'), 2) }}
+                        </h2>
+
+                        <span class="stat-currency">
+                            ر.س
+                        </span>
+
+                    </div>
 
                     <small class="stat-text">
-                        Highest Gold Price
+                        أعلى سعر مسجل حاليًا
                     </small>
 
                 </div>
 
                 <div class="stat-icon success">
-
                     <i class="fa-solid fa-arrow-trend-up"></i>
-
                 </div>
 
             </div>
@@ -36,7 +42,7 @@
     </div>
 
 
-    <!-- أقل سعر -->
+    {{-- أقل سعر --}}
     <div class="col-lg-6">
 
         <div class="card stat-card stat-danger">
@@ -49,20 +55,26 @@
                         أقل سعر
                     </span>
 
-                    <h2 class="stat-value mt-2">
-                        {{ number_format(\App\Models\GoldPrice::min('price'), 2) }}
-                    </h2>
+                    <div class="stat-price-row">
+
+                        <h2 class="stat-value">
+                            {{ number_format(\App\Models\GoldPrice::min('price'), 2) }}
+                        </h2>
+
+                        <span class="stat-currency">
+                            ر.س
+                        </span>
+
+                    </div>
 
                     <small class="stat-text">
-                        Lowest Gold Price
+                        أقل سعر مسجل حاليًا
                     </small>
 
                 </div>
 
                 <div class="stat-icon danger">
-
                     <i class="fa-solid fa-arrow-trend-down"></i>
-
                 </div>
 
             </div>
