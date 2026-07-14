@@ -3,11 +3,11 @@
 ## Sprint 1 - Dashboard
 
 - [x] Refactor dashboard.css
-- [ ] Improve Dashboard Hero
+- [x] Improve Dashboard Hero
 - [x] Improve Statistics Cards
-- [ ] Improve Gold Chart
-- [ ] Improve Latest Users Section
-- [ ] Responsive Review
+- [x] Improve Gold Chart
+- [x] Improve Latest Users Section
+- [x] Responsive Review
 
 ---
 
