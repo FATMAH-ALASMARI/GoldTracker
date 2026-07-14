@@ -1,0 +1,178 @@
+/* ===========================
+   Admin Dashboard Hero
+=========================== */
+
+.admin-dashboard-hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+
+    margin-bottom:28px;
+    padding:30px 34px;
+
+    background:
+        radial-gradient(circle at 15% 50%, rgba(212,175,55,.12), transparent 35%),
+        #131b27;
+
+    border:1px solid rgba(212,175,55,.18);
+    border-radius:20px;
+
+    box-shadow:0 16px 38px rgba(0,0,0,.22);
+}
+
+.admin-dashboard-hero-content h1{
+    margin:14px 0 8px;
+    color:#FFFFFF;
+    font-size:32px;
+    font-weight:800;
+}
+
+.admin-dashboard-hero-content p{
+    margin:0;
+    color:#9CA9BA;
+    font-size:16px;
+}
+
+.admin-dashboard-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    color:#E3BB36;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.admin-dashboard-badge i{
+    color:#22C55E;
+    font-size:8px;
+    filter:drop-shadow(0 0 6px #22C55E);
+}
+
+.admin-dashboard-hero-status{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    min-width:230px;
+    padding:18px 20px;
+
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+}
+
+.admin-dashboard-hero-status > i{
+    color:#D4AF37;
+    font-size:30px;
+}
+
+.admin-dashboard-hero-status div{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.admin-dashboard-hero-status span{
+    color:#8FA0B8;
+    font-size:13px;
+}
+
+.admin-dashboard-hero-status strong{
+    color:#FFFFFF;
+    font-size:15px;
+}
+
+
+/* ===========================
+   Dashboard Metric Cards
+=========================== */
+
+.dashboard-system-stats{
+    margin-top:0;
+}
+
+.dashboard-metric-card{
+    min-height:105px;
+    padding:18px 22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:#111b29;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:12px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+}
+
+.dashboard-metric-card .metric-icon{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:rgba(212,175,55,.10);
+    color:#E0B82F;
+
+    font-size:22px;
+}
+
+.dashboard-metric-card .metric-content{
+    text-align:right;
+}
+
+.dashboard-metric-card .metric-content h2{
+    margin:0 0 5px;
+
+    color:#FFFFFF;
+    font-size:25px;
+    font-weight:800;
+}
+
+.dashboard-metric-card .metric-content p{
+    margin:0;
+
+    color:#B6C3D5;
+    font-size:14px;
+}
+
+.dashboard-metric-card:hover{
+    transform:translateY(-2px);
+    border-color:rgba(212,175,55,.35);
+}
+
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:768px){
+
+    .admin-dashboard-hero{
+        flex-direction:column;
+        align-items:stretch;
+
+        padding:24px 20px;
+    }
+
+    .admin-dashboard-hero-content h1{
+        font-size:25px;
+    }
+
+    .admin-dashboard-hero-status{
+        min-width:0;
+    }
+
+}
