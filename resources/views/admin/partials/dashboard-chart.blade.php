@@ -9,11 +9,12 @@
             </h5>
 
             <p class="gold-chart-subtitle">
-                آخر 10 تحديثات للأسعار
+                متابعة أحدث تحديثات أسعار الذهب
             </p>
         </div>
 
         <div class="gold-chart-status">
+
             <div class="gold-live-badge">
 
                 <span class="gold-live-badge-title">
@@ -27,6 +28,7 @@
                 </span>
 
             </div>
+
         </div>
 
     </div>
@@ -80,21 +82,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 borderColor: '#D4AF37',
 
-                backgroundColor: 'rgba(212,175,55,.12)',
+                backgroundColor: 'rgba(212,175,55,.08)',
 
                 fill: true,
 
-                borderWidth: 3,
+                borderWidth: 2.5,
 
-                tension: 0.35,
+                tension: 0.4,
 
-                pointRadius: 5,
+                pointRadius: 4,
 
                 pointHoverRadius: 7,
 
                 pointBackgroundColor: '#D4AF37',
 
-                pointBorderColor: '#FFFFFF',
+                pointBorderColor: '#111B29',
 
                 pointBorderWidth: 2
 
@@ -123,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         color: '#AEB8C8',
                         usePointStyle: true,
                         pointStyle: 'circle',
-                        padding: 18
+                        padding: 20
                     }
 
                 },
@@ -135,7 +137,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         label: function(context) {
 
                             return ' السعر: ' +
-                                Number(context.parsed.y).toFixed(2);
+                                Number(context.parsed.y).toFixed(2) +
+                                ' ر.س';
 
                         }
 
@@ -163,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     beginAtZero: false,
 
-                    grace: '10%',
+                    grace: '8%',
 
                     grid: {
                         color: 'rgba(255,255,255,.05)'

@@ -20,21 +20,13 @@
         <table class="table premium-table align-middle mb-0">
 
             <thead>
-
                 <tr>
-
                     <th>#</th>
-
                     <th>المستخدم</th>
-
                     <th>البريد الإلكتروني</th>
-
                     <th>الصلاحية</th>
-
                     <th>تاريخ التسجيل</th>
-
                 </tr>
-
             </thead>
 
             <tbody>
@@ -43,29 +35,35 @@
 
                 <tr>
 
-                    <td>{{ $user->id }}</td>
+                    <td>
+                        <span class="text-muted">
+                            #{{ $user->id }}
+                        </span>
+                    </td>
 
                     <td>
 
                         <div class="d-flex align-items-center gap-3">
 
                             <div class="table-avatar">
-
-                                {{ strtoupper(substr($user->name,0,1)) }}
-
+                                {{ strtoupper(substr($user->name, 0, 1)) }}
                             </div>
 
-                            <strong>{{ $user->name }}</strong>
+                            <strong>
+                                {{ $user->name }}
+                            </strong>
 
                         </div>
 
                     </td>
 
-                    <td>{{ $user->email }}</td>
+                    <td>
+                        {{ $user->email }}
+                    </td>
 
                     <td>
 
-                        @if($user->role == 'admin')
+                        @if($user->role === 'admin')
 
                             <span class="badge bg-danger">
                                 Admin
@@ -82,9 +80,9 @@
                     </td>
 
                     <td>
+                        <i class="bi bi-calendar3 text-warning me-1"></i>
 
                         {{ $user->created_at->format('Y-m-d') }}
-
                     </td>
 
                 </tr>
@@ -92,13 +90,9 @@
             @empty
 
                 <tr>
-
-                    <td colspan="5" class="text-center py-4">
-
+                    <td colspan="5" class="text-center py-4 text-muted">
                         لا يوجد مستخدمون.
-
                     </td>
-
                 </tr>
 
             @endforelse
